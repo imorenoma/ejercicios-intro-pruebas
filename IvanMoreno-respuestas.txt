@@ -1,0 +1,30 @@
+1.
+
+-----FINDLAST.JAVA-------
+
+javac FindLast.java
+java FindLast
+
+--Vamos a compilar y ejecutar los test en FindLast
+
+javac -cp .:../junit-4.12.jar FindLast.java
+javac -cp .:../junit-4.12.jar AllTests.java
+java -cp .:../junit-4.12.jar:../hamcrest-core-1.3.jar AllTests
+
+comprobamos que el nos da un error:
+
+There was 1 error:
+
+1) lastOccurrenceInFirstElement(FindLastTest)java.lang.AssertionError: 
+Last occurence in first element expected:<0> but was:<-1>
+
+
+Como el test ha fallado Comprobamos el código de FindLast.java. En este caso
+nos vamos a la funcion findLast y modificamos la condicion del if. Esto lo
+hacemos porque antes no teniamos en cuenta el 0 por tanto el if nos quedará
+de la siguiente manera
+
+if(int i = x.length-1 ; i >= 0; i--)
+
+
+
