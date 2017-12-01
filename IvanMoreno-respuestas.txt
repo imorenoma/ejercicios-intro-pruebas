@@ -65,3 +65,30 @@ considera el 0 como número positivo por esa razón hacemos una pequeña modific
 
  if (x[i] >= 0) y quitamos el igual es decir vamos a considerar que los positivos son 
 mayores que cero por lo que el if seria if (x[i] > 0)
+
+
+----------------------ODDORPOS.JAVA------------------
+
+javac OddOrPos.java
+java OddOrPos
+
+javac -cp .:../junit-4.12.jar OddOrPos.java
+javac -cp .:../junit-4.12.jar AllTests.java
+java -cp .:../junit-4.12.jar:../hamcrest-core-1.3.jar AllTests
+
+Encontramos un fallo en  OddOrPosTest
+
+There was 1 error:
+1) negativeOddNumbers(OddOrPosTest)java.lang.AssertionError: 
+Negative odd numbers in array expected:<3> but was:<2>
+
+
+Podemos ver que nos falta una condición en el if del método oddOrPos
+
+if (x[i]%2 == 1 || x[i] > 0)
+
+En el caso de que hagamos el modulo de -3 tendríamos un -1 de resto, esta es 
+la condición que nos falta para que pase el test por tanto el if nos queda de la siguiente 
+manera:
+
+if (x[i]%2 == 1 || x[i]%2 == -1 || x[i] > 0)
