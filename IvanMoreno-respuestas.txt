@@ -42,11 +42,26 @@ There was 1 error:
 Multiple zeroes: should find last one expected:<2> but was:<0>
 
 
-En este caso lo que pasaba es que la condicion de tomar el ultimo 0 no la cumplia 
+En este caso lo que pasaba es que la condicion de tomar el ultimo 0 no la cumplía, 
 se quedaba con el primer cero que encontraba, para solucionar este problema hemos
-modificado la condicion del if para que lea el array desde el final hasta el principio
+modificado la condición del if para que lea el array desde el final hasta el principio
 como en el codigo de FindLast.java
 
 for(int i = x.length -1; i >= 0; i --)
 
-Ahora si volvemos a pasar os test no hay ningun problema
+Ahora sí volvemos a pasar os test no hay ningun problema
+
+-------------COUNTPOSITIVE.JAVA---------------
+
+Como en los casos anteriores vemos que tenemos un fallo
+
+There was 1 error:
+1) arrayContainsZeroes(CountPositiveTest)java.lang.AssertionError:
+ Array contains zeroes expected:<2> but was:<3>
+
+
+Lo que nos esta diciendo en este caso es que tenemos 3 números positivos en este caso  
+considera el 0 como número positivo por esa razón hacemos una pequeña modificacion en
+
+ if (x[i] >= 0) y quitamos el igual es decir vamos a considerar que los positivos son 
+mayores que cero por lo que el if seria if (x[i] > 0)
